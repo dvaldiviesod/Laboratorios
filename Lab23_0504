@@ -1,0 +1,17 @@
+# Ejercicio 1
+n = int(input("Digite un número: "))
+if n%3==0 and n%5==0:
+    print("El número es múltiplo de 15.")
+else:
+    print("El número no es múltiplo de 15")
+# Ejercicio 2
+n1 = int(input("Digite la nota 1: "))
+n2 = int(input("Digite la nota 1: "))
+n3 = int(input("Digite la nota 1: "))
+p = (n1+n2+n3)/3
+if p>=7:
+    print("Promovido.")
+elif p>=4 and p<=7:
+    print("Regular.")
+else:
+    print("Reprobado.")
