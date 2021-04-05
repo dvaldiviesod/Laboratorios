@@ -15,3 +15,22 @@ elif p>=4 and p<=7:
     print("Regular.")
 else:
     print("Reprobado.")
+# Ejemplo listas 1
+lista = [1, 2, 3, 4, 5, "a", "e", "i", "o", "u"]
+print(lista[4:6])
+# Ejemplo listas 2
+lista.extend(["Números", "Vocales"])
+print(lista)
+# Ejemplo listas 3
+lista1 = [1,2,3,4,5]
+print(lista1)
+lista2 = ["a", "e", "i", "o", "u"]
+print(lista2)
+listaTotal = lista1 + lista2
+print(listaTotal)
+# Ejemplo listas 4
+lista3 = [99,2,143,2056,10]
+print(id(lista3))
+lista3.sort()
+print(lista3)
+print(id(lista3))
