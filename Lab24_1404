@@ -1,0 +1,136 @@
+# -*- coding: utf-8 -*-
+#Se asigna el valor a cada valor en desorden
+def resta(a, b):
+    print (a-b)
+resta(b=30, a= 10)
+#Se asigna en orden
+def resta2(a,b):
+    print(a-b)
+resta2(50,10)
+#Para evitar TypeError
+def resta3(a= None, b=None):
+    if a==None or b ==None:
+        print("ERROR")
+        return
+    return a-b
+print(resta3(30,10))
+resta3()
+#Indeterminados por posición
+def indeterminados(*args):
+    for arg in args:
+        print(arg)
+indeterminados(1,2,3,4,5,["a","e","i","o","u"])
+print(indeterminados)
+#Indeterminados por nombre
+def saludame(**kwargs):
+    for key, value in kwargs.items():
+        print("{0} = {1}".format(key, value))
+saludame(nombre = "valdi")
+print(saludame)
+#Se define una funcion y se le pasan argumentos mediante kwargs
+def test_args_kwargs(arg1, arg2, arg3):
+    print("arg1:", arg1)
+    print("arg2:", arg2)
+    print("arg3:", arg3)
+kwargs = {"arg3": 3, "arg2": "dos", "arg1": 5}
+test_args_kwargs(**kwargs)
+print(test_args_kwargs)
+#Tomado de https://python-intermedio.readthedocs.io/es/latest/args_and_kwargs.html
+#Indeterminados por posición y nombre
+def super_funcion(*args,**kwargs):
+    total=0
+    for arg in args:
+        total += arg
+        print("suma=>",total)
+    for kwarg in kwargs:
+        print(kwarg, "=>", kwargs[kwarg])
+super_funcion(50,2,10,cms="Plone",edad=30)
+print(super_funcion)
+#Return
+def prueba():
+    return("Hola", 1522313, ["a","i"])
+print(prueba())
+#Ejemplo 1
+def diHola():
+    print("Hola")
+diHola()
+def holaConNombre(nombre):
+    print ("Hola " + nombre + " !")
+holaConNombre("Daniel")
+def multiplica(val1,val2):
+    return val1 * val2
+print(multiplica(3,5))
+#Ejemplo2
+def suma(a,b):
+    return a+b
+result = suma(1,2)
+print(result)
+#Ejemplo 3
+def suma2(a, b=3):
+    return a+b
+resultado=suma2(1)
+print(resultado)
+#Ejemplo 4
+resultado2= suma2(b=2, a=2)
+print(resultado2)
+#Ejemplo 5
+resultado3 = suma2(3,b=2)
+print(resultado3)
+resultado4 = suma2(b=2,3)
+print(resultado4)
+#Ejemplo 6
+s = suma2
+resultado5= s(1,2)
+print(resultado5)
+#Ejercicios max
+list2 = ['a', 'b', 'c']
+print(max(list2)) #Devuelve c ya que es el ultimo valor de la lista
+list4 = []
+print(max(list4)) # Genera ValueError ya que el argumento lista está vacio
+#Ejercicios min 
+list2 = ['a', 'b', 'c']
+print(min(list2)) # Devuelve a ya que es el primer valor en la lista
+#Funcion divmod
+print(divmod(13.5,2.5)) 
+q,r = divmod(13.5,2.5)  
+print(q) 
+print(r) 
+#Consulta 1
+def calcula_media(x, y): #Se define una función a la que se le asignan dos valores y realiza el promedio de estos
+    resultado = (x + y) / 2
+    return resultado
+a = 3 #Se asignan dos valores 
+b = 5
+media = calcula_media(a, b) #Se llama a la función con los valores definidos anteriormente
+print(f"La media de {a} y {b} es: {media}") #Se imprimen los dos valores y su resultado
+print("Programa terminado")
+#Consulta 2
+def calcula_media_desviacion(*args): #Define una funcion indeterminada
+    total = 0 #Se crea una variable para acumular los números y sumarlos
+    for i in args: #Para cada valor en args
+        total += i #Se suman todos los valores ingresados en args
+    media = total / len(args) #Esa suma se divide sobre la cantidad de datos ingresados
+    total = 0 
+    for i in args: 
+        total += (i - media) ** 2 #Se suman todos los valores menos la media al cuadrado
+    desviacion = (total / len(args)) ** 0.5 #Se divide el valor anterior sobre la cantidad de datos ingresados y se realiza su raiz cuadrada
+    return media, desviacion #Finaliza el proceso de los calculos anteriores
+a, b, c, d = 3, 5, 10, 12 #Se asignan variables
+media, desviacion_tipica = calcula_media_desviacion(a, b, c, d) #Se ingresan en dos variables nuevas los valores después de realizar los cálculos definidos en la función 
+print(f"Datos: {a} {b} {c} {d}") #Se imprimen las variables asignadas
+print(f"Media: {media}") #Se realiza el primer ciclo for en la función inicial
+print(f"Desviación típica: {desviacion_tipica}") #Se realiza el siguiente ciclo for
+print("Programa terminado")
+#Consulta 3
+def aumenta(x): #Define una función con variable
+    print(id(x)) #Imprime el id de la variable ingresada en la funcion
+    x += 1 #Aumenta 1 a la variable ingresada
+    print(id(x)) #Imprime el id de la variable después de sumarle 1
+    return x #Finaliza el proceso e indica el valor que fue aumentado
+print(id(3), id(4)) #Imprime el id de los valores 3 y 4
+a = 3 #Define una variable a
+print(id(a)) #Imprime el id de la variable a
+print(aumenta(a)) #Imprime el id de la variable, primero 3, después aumenta a 4, se imprime el id de 4 y devuelve 4.
+print(a) #Se imprime el valor de la variable a, es decir 3, ya que no cambió afuera de la función.
+print(id(a)) 
+#Consultas tomadas de https://www.mclibre.org/consultar/python/lecciones/python-funciones-2.html#Paso509
