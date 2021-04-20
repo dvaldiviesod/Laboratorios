@@ -1,0 +1,112 @@
+# -*- coding: utf-8 -*-
+import math
+# Ejercicio 1
+def primo(num):  # Se define una función para determinar si un número es primo.
+    for i in range(2,
+                   num):  # Se evalúa si algún número dentro del rango de 2 al número ingresado puede dividir al mismo.
+        if num % i == 0:
+            return False  # Si encuentra un divisor, devuelve false y se determina que no es primo.
+    return True  # Si no encuentra un divisor, devuelve true y se determina que el número es primo.
+
+
+def frecuencia(numero,
+               digito):  # Se define una función para determinar las veces que se repite un dígito en el número ingresado
+    cantidad = 0  # Se crea un contador
+    while numero != 0:
+        modnumero = numero % 10  # Se realiza el modulo del numero ingresado
+        if modnumero == digito:
+            cantidad += 1  # Si el modulo del numero es igual al digito que aparece en el numero se suma 1 al contador
+        numero = numero // 10  # Se realiza la parte entera del numero ingresado
+    return cantidad
+
+
+def factorial(numero):
+    f = 1
+    if numero != 0:
+        for i in range(1, numero + 1):
+            f = f * i  # Se multiplica desde el número ingresado hasta el 1
+    return f
+
+
+def sumaDigitos(numero):
+    suma = 0
+    while numero != 0:
+        digito = numero % 10
+        suma = suma + digito  # Se suma cada dígito del numero por el siguiente
+        numero = numero // 10
+    return suma
+
+
+mayor = 0
+numero = int(input("Ingrese un número primo (si ingresa un número no primo, saldrá del programa): "))
+while primo(numero):  # Si el numero es primo
+    print("La suma de cada uno de los dígitos del número ingresado es:",
+          sumaDigitos(numero))  # Se llama a la definición de suma de dígitos
+    digito = int(input("Ingrese un dígito del número: "))
+    print("El", digito, "aparece", frecuencia(numero, digito),
+          "vez/veces.")  # Se llama a la definición de frecuencia de un dígito
+    if numero > mayor:
+        mayor = numero  # Se define el primer número como mayor y si el segundo es mayor se reemplaza
+    numero = int(input("Ingrese otro número primo (si ingresa un número no primo, saldrá del programa): "))
+if mayor != 0:
+    print("El factorial del número mayor", "(", mayor, ")", "es:",
+          factorial(mayor))  # Se llama a la función de factorial
+else:
+    print("El número no es primo, programa finalizado.")
+
+
+# Ejercicio 2
+def coordenadaZ(x, y):
+    x = x + 10
+    y = y + 15
+    return x + y
+
+
+# programa principal
+x = int(input("Ingrese la coordenada en el eje x: "))
+y = int(input("Ingrese la coordenada en el eje y: "))
+for i in range(3):
+    z = coordenadaZ(x, y)
+    x = x + 1
+    y = y + 1
+print("La coordenada z es:", x, ".", y)
+
+
+# Ejercicio 3
+def maximo(x, y):
+    if x > y:
+        return x
+    else:
+        return y
+
+
+def minimo(x, y):
+    if x < y:
+        return x
+    else:
+        return y
+
+
+# programa principal
+x = int(input("Ingrese un número entero: "))
+y = int(input("Ingrese otro número: "))
+print(maximo(x - 3, minimo(x + 2, y - 5)))
+
+
+# Ejemplo 1
+def suma():
+    x = eval(input("Ingrese un número u operación matemática cualquiera: "))
+    y = eval(input("Ingrese otro número u operación matemática: "))
+    return x + y
+
+
+print(suma())
+# Ejemplo 2
+lista = ["a", "e", "i", "o", "u"]
+print(lista)
+total_vocales = len(lista)
+print("El total de elementos de la lista es de:", total_vocales)
+lista.extend([1, 2, 3, 4, 5])
+print(lista)
+total_vocales2 = len(lista)
+print("Ahora, el total de elementos de la lista es de:", total_vocales2)
